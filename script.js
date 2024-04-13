@@ -8,6 +8,8 @@ function send() {
   message = document.getElementById("input").value;
   newMessage("Sohaib", message);
 }
+let autoScroll = true;
+const enableScrollConst = 60;
 function newMessage(name, message) {
   if (message === "") {
     return;
@@ -57,10 +59,29 @@ function newMessage(name, message) {
 
   outputContainer.appendChild(outputDiv);
 
+  let scrollTopValue = outputContainer.scrollHeight - outputContainer.clientHeight;
+
+  if(outputContainer.scrollTop < scrollTopValue - enableScrollConst)
+  {
+    autoScroll = false;
+  }
+  else
+  {
+    autoScroll = true;
+  }
+  
+  if(autoScroll) {
   // Scroll to bottom
-  outputContainer.scrollTop =
-    outputContainer.scrollHeight - outputContainer.clientHeight;
+  outputContainer.scrollTop = scrollTopValue;
+  }
+
 }
-function padZero(num) {
-  return (num < 10 ? "0" : "") + num;
+
+let a = 0;
+function myFunction() {
+  newMessage("Sohaib", "Hello World : "+a);
+  a++;
 }
+
+// Call myFunction every 1000 milliseconds (1 second)
+setInterval(myFunction, 1000);
