@@ -1,0 +1,156 @@
+body {
+  margin: 0;
+  font-family: Roboto, Arial, sans-serif; /* Set the font */
+}
+
+.container {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  background-color: #2e2e2e;
+  justify-content: start;
+  align-items: center;
+  flex-direction: column;
+}
+.title {
+  color: rgba(255, 255, 255, 0.733);
+}
+.box {
+  display: flex;
+  flex-direction: column;
+  width: 90vw;
+  height: 80vh;
+  background-color: #1e1e1e;
+  border-radius: 20px;
+  box-shadow: 20px 20px 40px rgba(122, 122, 122, 0.109);
+}
+#output-container {
+  width: calc(100% - 20px);
+  overflow-y: auto; /* Enable horizontal scrolling */
+  overflow-x: hidden; /* Disable vertical scrolling */
+  margin: 30px 0 30px 20px;
+}
+.output {
+  display: flex;
+  flex-direction: column;
+  color: white;
+  width: calc(100% - 40px);
+  background-color: rgb(35, 37, 45);
+  border-radius: 12px;
+  padding: 5px 10px;
+  margin: 0 0 8px 0;
+  padding-bottom: 0;
+}
+.side-by-side {
+  display: flex;
+}
+.name {
+  color: #259c65;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+.symbol{
+  color: white;
+  font-size: 1.1em;
+  font-weight: bold;
+}
+.message {
+  padding-left: 5px;
+  font-size: 1.1em;
+  flex-grow: 1; /* this one line tells button to stretch across all available width */
+}
+.time {
+  align-self: end;
+  font-size: 0.8em;
+  color: rgba(255, 255, 255, 0.733);
+  padding-top: 4px;
+  padding-bottom: 2px;
+  margin: 0;
+}
+
+.input-container {
+  margin-top: auto;
+  margin-left: 20px;
+  margin-bottom: 20px;
+  width: calc(100% - 40px);
+  /* margin: 30px 0 0 20px;  */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+input {
+  width: calc(100% - 100px);
+  height: 36px;
+  border-radius: 16px;
+  outline: none;
+  border: 1px solid #ffffff1a;
+  padding: 0 10px;
+  font-size: 1.1em;
+  color: white;
+  background-color: #2e2e2e;
+}
+
+input:focus {
+  outline: none;
+  border: 1px solid #1687ff54;
+  box-shadow: 0 0 1px #719ece;
+}
+#send {
+  display: flex; /* Use flexbox */
+  align-items: center; /* Center vertically */
+  justify-content: center; /* Center horizontally */
+  width: 90px;
+  height: 36px;
+  border-radius: 16px;
+  outline: none;
+  border: none;
+  color: white;
+  background-color: #1687ffd1;
+  cursor: pointer;
+  margin-left: 20px;
+
+  transition: background-color 0.2s ease-in-out;
+}
+
+#send:hover {
+  background-color: #1687ff;
+}
+
+#send:active {
+  /* background-color: #259c65; */
+  background-color: rgba(0, 123, 255, 0.508);
+}
+
+@media (min-width: 800px) {
+  .box {
+    display: flex;
+    flex-direction: column;
+    width: 60vw;
+    height: 80vh;
+    background-color: #1e1e1e;
+    border-radius: 20px;
+    box-shadow: 20px 20px 40px rgba(122, 122, 122, 0.109);
+  }
+}
+
+div::-webkit-scrollbar {
+  width: 4px; /* Width of the scrollbar */
+  border-radius: 2px; /* Rounded corners */
+}
+
+div::-webkit-scrollbar-track {
+  background: #484747; /* Color of the scrollbar track */
+}
+
+div::-webkit-scrollbar-thumb {
+  background: #888; /* Color of the scrollbar thumb */
+  border-radius: 6px; /* Rounded corners */
+}
+
+div::-webkit-scrollbar-thumb:hover {
+  background: #bcbcbc; /* Color of the scrollbar thumb on hover */
+}
+div::-webkit-scrollbar-thumb:active {
+  background: #1b6acb; /* Dark blue color when clicked */
+}
