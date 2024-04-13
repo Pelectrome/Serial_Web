@@ -74,7 +74,7 @@ function newMessage(name, message) {
   }
 }
 
-let a = 0;
+// let a = 0;
 // function myFunction() {
 //   newMessage("Sohaib", "Hello World : "+a);
 //   a++;
