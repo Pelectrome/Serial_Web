@@ -59,29 +59,26 @@ function newMessage(name, message) {
 
   outputContainer.appendChild(outputDiv);
 
-  let scrollTopValue = outputContainer.scrollHeight - outputContainer.clientHeight;
+  let scrollTopValue =
+    outputContainer.scrollHeight - outputContainer.clientHeight;
 
-  if(outputContainer.scrollTop < scrollTopValue - enableScrollConst)
-  {
+  if (outputContainer.scrollTop < scrollTopValue - enableScrollConst) {
     autoScroll = false;
-  }
-  else
-  {
+  } else {
     autoScroll = true;
   }
-  
-  if(autoScroll) {
-  // Scroll to bottom
-  outputContainer.scrollTop = scrollTopValue;
+
+  if (autoScroll) {
+    // Scroll to bottom
+    outputContainer.scrollTop = scrollTopValue;
   }
-
 }
 
-let a = 0;
-function myFunction() {
-  newMessage("Sohaib", "Hello World : "+a);
-  a++;
-}
+// let a = 0;
+// function myFunction() {
+//   newMessage("Sohaib", "Hello World : "+a);
+//   a++;
+// }
 
-// Call myFunction every 1000 milliseconds (1 second)
-setInterval(myFunction, 1000);
+// // Call myFunction every 1000 milliseconds (1 second)
+// setInterval(myFunction, 1000);
