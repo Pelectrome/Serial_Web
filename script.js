@@ -1,3 +1,5 @@
+updateMessageCount();
+
 document.getElementById("input").addEventListener("keyup", function (event) {
   if (event.key === "Enter") {
     message = document.getElementById("input").value;
@@ -8,43 +10,55 @@ function send() {
   message = document.getElementById("input").value;
   newMessage("Sohaib", message);
 }
+function deleteMessages() {
+  let result = window.confirm("Are you sure you want to delete all messages?");
+  if (result) {
+    // User clicked OK, perform the action
+    let outputContainer = document.getElementById("output-container");
+    while (outputContainer.firstChild) {
+      // Loop while there are still child nodes
+      outputContainer.removeChild(outputContainer.firstChild); // Remove the first child node
+    }
+    updateMessageCount();
+  }
+}
 let autoScroll = true;
 const enableScrollConst = 60;
 function newMessage(name, message) {
   if (message === "") {
     return;
   }
-  var currentTime = new Date();
-  var formattedTime = currentTime.toLocaleTimeString("en-US", {
+  let currentTime = new Date();
+  let formattedTime = currentTime.toLocaleTimeString("en-US", {
     hour12: false,
   });
 
   // Clear input
   document.getElementById("input").value = "";
 
-  var outputContainer = document.getElementById("output-container");
+  let outputContainer = document.getElementById("output-container");
 
   // Create elements
-  var outputDiv = document.createElement("div");
+  let outputDiv = document.createElement("div");
   outputDiv.classList.add("output");
 
-  var sideDiv = document.createElement("div");
+  let sideDiv = document.createElement("div");
   sideDiv.classList.add("side-by-side");
 
-  var nameDiv = document.createElement("div");
+  let nameDiv = document.createElement("div");
   nameDiv.classList.add("name");
 
-  var symbolSpan = document.createElement("span");
+  let symbolSpan = document.createElement("span");
   symbolSpan.classList.add("symbol");
   symbolSpan.textContent = ":";
 
   nameDiv.textContent = name;
 
-  var messageDiv = document.createElement("div");
+  let messageDiv = document.createElement("div");
   messageDiv.classList.add("message");
   messageDiv.textContent = message;
 
-  var timeDiv = document.createElement("div");
+  let timeDiv = document.createElement("div");
   timeDiv.classList.add("time");
   timeDiv.textContent = formattedTime;
 
@@ -58,6 +72,8 @@ function newMessage(name, message) {
   outputDiv.appendChild(timeDiv);
 
   outputContainer.appendChild(outputDiv);
+
+  updateMessageCount();
 
   let scrollTopValue =
     outputContainer.scrollHeight - outputContainer.clientHeight;
@@ -74,6 +90,12 @@ function newMessage(name, message) {
   }
 }
 
+function updateMessageCount() {
+  let outputContainer = document.getElementById("output-container");
+  let messageCount = outputContainer.children.length; // Get the number of child elements
+  let messageCountDiv = document.getElementById("message-count-number");
+  messageCountDiv.textContent = messageCount;
+}
 // let a = 0;
 // function myFunction() {
 //   newMessage("Sohaib", "Hello World : "+a);

@@ -28,7 +28,7 @@ body {
   width: calc(100% - 20px);
   overflow-y: auto; /* Enable horizontal scrolling */
   overflow-x: hidden; /* Disable vertical scrolling */
-  margin: 30px 0 30px 20px;
+  margin: 30px 0 0 20px;
 }
 .output {
   display: flex;
@@ -49,7 +49,7 @@ body {
   font-weight: bold;
   font-size: 1.1em;
 }
-.symbol{
+.symbol {
   color: white;
   font-size: 1.1em;
   font-weight: bold;
@@ -68,12 +68,45 @@ body {
   margin: 0;
 }
 
-.input-container {
+.action-container {
   margin-top: auto;
   margin-left: 20px;
   margin-bottom: 20px;
   width: calc(100% - 40px);
-  /* margin: 30px 0 0 20px;  */
+  display: flex;
+  flex-direction: column;
+
+}
+.separator {
+  width: 80%;
+  height: 1px;
+  background-color: #ffffff4c;
+  margin-bottom: 0px;
+  align-self: center;
+}
+.message-count-container{
+  display: flex;
+  justify-content: space-between;
+}
+.delete-messages{
+  cursor: pointer;
+  color: rgb(255, 255, 255);
+  padding-bottom: 12px;
+  padding-top: 6px;
+  padding-left: 10px;
+  transition: color 0.2s ease-in-out;
+}
+.delete-messages:hover{
+  color: #d996fa;
+}
+.message-count{
+  color: white;
+  /* align-self: end; */
+  align-self: end;
+  padding-bottom: 12px;
+  padding-top: 6px;
+}
+.input-container {
   display: flex;
   align-items: center;
   justify-content: space-between;
