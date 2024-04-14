@@ -23,7 +23,7 @@ function deleteMessages() {
   }
 }
 let autoScroll = true;
-const enableScrollConst = 60;
+const enableScrollConst = 80;
 function newMessage(name, message) {
   if (message === "") {
     return;
