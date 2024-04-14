@@ -75,7 +75,6 @@ body {
   width: calc(100% - 40px);
   display: flex;
   flex-direction: column;
-
 }
 .separator {
   width: 80%;
@@ -84,22 +83,33 @@ body {
   margin-bottom: 0px;
   align-self: center;
 }
-.message-count-container{
+.message-count-container {
   display: flex;
   justify-content: space-between;
 }
-.delete-messages{
+.delete-messages {
   cursor: pointer;
   color: rgb(255, 255, 255);
   padding-bottom: 12px;
-  padding-top: 6px;
-  padding-left: 10px;
+  padding-top: 8px;
+  padding-left: 4px;
   transition: color 0.2s ease-in-out;
+  -webkit-tap-highlight-color: transparent; /* this to delete the back ground effect on click */
 }
-.delete-messages:hover{
-  color: #d996fa;
+
+@media (pointer: none),
+  (pointer: coarse) /* detect if you are on a touch device */ {
+  .delete-messages:active {
+    color: #fa9696;
+  }
 }
-.message-count{
+@media (pointer: fine) /* detect if you are not on a touch device */ {
+  .delete-messages:hover {
+    color: #fa9696;
+  }
+}
+
+.message-count {
   color: white;
   /* align-self: end; */
   align-self: end;
@@ -144,10 +154,13 @@ input:focus {
   margin-left: 20px;
 
   transition: background-color 0.2s ease-in-out;
+  -webkit-tap-highlight-color: transparent;
 }
 
-#send:hover {
-  background-color: #1687ff;
+@media (pointer: fine) {
+  #send:hover {
+    background-color: #1687ff;
+  }
 }
 
 #send:active {
