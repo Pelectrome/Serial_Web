@@ -10,7 +10,7 @@ function send() {
   // Clear input
   document.getElementById("input").value = "";
   newMessageSend(message);
-  newMessageReceived("You", message);
+  newMessageReceived("Sohaib", message);
 }
 function newMessageSend(message) {
   if (message === "") {
