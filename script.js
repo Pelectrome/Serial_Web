@@ -65,18 +65,7 @@ function newMessageSend(message) {
     outputContainer.scrollTop = scrollTopValue;
   }
 }
-function deleteMessages() {
-  let result = window.confirm("Are you sure you want to delete all messages?");
-  if (result) {
-    // User clicked OK, perform the action
-    let outputContainer = document.getElementById("output-container");
-    while (outputContainer.firstChild) {
-      // Loop while there are still child nodes
-      outputContainer.removeChild(outputContainer.firstChild); // Remove the first child node
-    }
-    updateMessageCount();
-  }
-}
+
 let autoScroll = true;
 const enableScrollConst = 100;
 function newMessageReceived(name, message) {
@@ -108,9 +97,9 @@ function newMessageReceived(name, message) {
 
   received_name.textContent = name;
 
-  let messageDiv = document.createElement("div");
-  messageDiv.classList.add("received-message");
-  messageDiv.textContent = message;
+  let received_message = document.createElement("div");
+  received_message.classList.add("received-message");
+  received_message.textContent = message;
 
   let timeDiv = document.createElement("div");
   timeDiv.classList.add("time");
@@ -120,7 +109,7 @@ function newMessageReceived(name, message) {
 
   received_name_message_container.appendChild(received_name);
   received_name_message_container.appendChild(symbolSpan);
-  received_name_message_container.appendChild(messageDiv);
+  received_name_message_container.appendChild(received_message);
 
   received_data_container.appendChild(received_name_message_container);
   received_data_container.appendChild(timeDiv);
@@ -141,6 +130,19 @@ function newMessageReceived(name, message) {
   if (autoScroll) {
     // Scroll to bottom
     outputContainer.scrollTop = scrollTopValue;
+  }
+}
+
+function deleteMessages() {
+  let result = window.confirm("Are you sure you want to delete all messages?");
+  if (result) {
+    // User clicked OK, perform the action
+    let outputContainer = document.getElementById("output-container");
+    while (outputContainer.firstChild) {
+      // Loop while there are still child nodes
+      outputContainer.removeChild(outputContainer.firstChild); // Remove the first child node
+    }
+    updateMessageCount();
   }
 }
 
