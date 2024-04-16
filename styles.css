@@ -30,7 +30,7 @@ body {
   overflow-x: hidden; /* Disable vertical scrolling */
   margin: 30px 0 0 20px;
 }
-.output {
+.received-data-container {
   display: flex;
   flex-direction: column;
   color: white;
@@ -41,10 +41,10 @@ body {
   margin: 0 0 8px 0;
   padding-bottom: 0;
 }
-.side-by-side {
+.received-name-message-container {
   display: flex;
 }
-.name {
+.received-name {
   color: #259c65;
   font-weight: bold;
   font-size: 1.1em;
@@ -54,7 +54,7 @@ body {
   font-size: 1.1em;
   font-weight: bold;
 }
-.message {
+.received-message {
   padding-left: 5px;
   font-size: 1.1em;
   flex-grow: 1; /* this one line tells button to stretch across all available width */
@@ -67,7 +67,28 @@ body {
   padding-bottom: 2px;
   margin: 0;
 }
-
+.send-data-container_background {
+  display: flex;
+  flex-direction: row;
+  width: calc(100% - 20px);
+  background-color: #1e1e1e;
+  justify-content: end;
+  margin: 0 0 8px 0;
+}
+.send-data-container {
+  display: flex;
+  flex-direction: column;
+  color: white;
+  /* width: calc(100% - 40px); */
+  background-color: rgb(71, 80, 117);
+  border-radius: 12px;
+  padding: 5px 10px;
+}
+.send-message {
+  padding-left: 5px;
+  font-size: 1.1em;
+  color: white;
+}
 .action-container {
   margin-top: auto;
   margin-left: 20px;

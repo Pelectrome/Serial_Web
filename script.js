@@ -2,13 +2,68 @@ updateMessageCount();
 
 document.getElementById("input").addEventListener("keyup", function (event) {
   if (event.key === "Enter") {
-    message = document.getElementById("input").value;
-    newMessage("Sohaib", message);
+    send();
   }
 });
 function send() {
   message = document.getElementById("input").value;
-  newMessage("Sohaib", message);
+  // Clear input
+  document.getElementById("input").value = "";
+  newMessageSend(message);
+  newMessageReceived("You", message);
+}
+function newMessageSend(message) {
+  if (message === "") {
+    return;
+  }
+  let currentTime = new Date();
+  let formattedTime = currentTime.toLocaleTimeString("en-US", {
+    hour12: false,
+  });
+
+  let outputContainer = document.getElementById("output-container");
+
+  // Create elements
+  let send_data_container_background = document.createElement("div");
+  send_data_container_background.classList.add(
+    "send-data-container_background"
+  );
+
+  let send_data_container = document.createElement("div");
+  send_data_container.classList.add("send-data-container");
+
+  let send_message = document.createElement("div");
+  send_message.classList.add("send-message");
+  send_message.textContent = message;
+
+  let timeDiv = document.createElement("div");
+  timeDiv.classList.add("time");
+  timeDiv.textContent = formattedTime;
+
+  // Append elements
+
+  send_data_container.appendChild(send_message);
+  send_data_container.appendChild(timeDiv);
+
+  send_data_container_background.appendChild(send_data_container);
+
+  outputContainer.appendChild(send_data_container_background);
+
+  updateMessageCount();
+
+  let scrollTopValue =
+    outputContainer.scrollHeight - outputContainer.clientHeight;
+
+  if (outputContainer.scrollTop < scrollTopValue - enableScrollConst) {
+    autoScroll = false;
+  } else {
+    autoScroll = true;
+  }
+
+  if (autoScroll) {
+    // Scroll to bottom
+    outputContainer.scrollTop = scrollTopValue;
+  }
 }
 function deleteMessages() {
   let result = window.confirm("Are you sure you want to delete all messages?");
@@ -24,7 +79,7 @@ function deleteMessages() {
 }
 let autoScroll = true;
 const enableScrollConst = 100;
-function newMessage(name, message) {
+function newMessageReceived(name, message) {
   if (message === "") {
     return;
   }
@@ -33,29 +88,28 @@ function newMessage(name, message) {
     hour12: false,
   });
 
-  // Clear input
-  document.getElementById("input").value = "";
-
   let outputContainer = document.getElementById("output-container");
 
   // Create elements
-  let outputDiv = document.createElement("div");
-  outputDiv.classList.add("output");
+  let received_data_container = document.createElement("div");
+  received_data_container.classList.add("received-data-container");
 
-  let sideDiv = document.createElement("div");
-  sideDiv.classList.add("side-by-side");
+  let received_name_message_container = document.createElement("div");
+  received_name_message_container.classList.add(
+    "received-name-message-container"
+  );
 
-  let nameDiv = document.createElement("div");
-  nameDiv.classList.add("name");
+  let received_name = document.createElement("div");
+  received_name.classList.add("received-name");
 
   let symbolSpan = document.createElement("span");
   symbolSpan.classList.add("symbol");
   symbolSpan.textContent = ":";
 
-  nameDiv.textContent = name;
+  received_name.textContent = name;
 
   let messageDiv = document.createElement("div");
-  messageDiv.classList.add("message");
+  messageDiv.classList.add("received-message");
   messageDiv.textContent = message;
 
   let timeDiv = document.createElement("div");
@@ -64,14 +118,14 @@ function newMessage(name, message) {
 
   // Append elements
 
-  sideDiv.appendChild(nameDiv);
-  sideDiv.appendChild(symbolSpan);
-  sideDiv.appendChild(messageDiv);
+  received_name_message_container.appendChild(received_name);
+  received_name_message_container.appendChild(symbolSpan);
+  received_name_message_container.appendChild(messageDiv);
 
-  outputDiv.appendChild(sideDiv);
-  outputDiv.appendChild(timeDiv);
+  received_data_container.appendChild(received_name_message_container);
+  received_data_container.appendChild(timeDiv);
 
-  outputContainer.appendChild(outputDiv);
+  outputContainer.appendChild(received_data_container);
 
   updateMessageCount();
 
@@ -96,11 +150,3 @@ function updateMessageCount() {
   let messageCountDiv = document.getElementById("message-count-number");
   messageCountDiv.textContent = messageCount;
 }
-// let a = 0;
-// function myFunction() {
-//   newMessage("Sohaib", "Hello World : "+a);
-//   a++;
-// }
-
-// // Call myFunction every 1000 milliseconds (1 second)
-// setInterval(myFunction, 1000);
