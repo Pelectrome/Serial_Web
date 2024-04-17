@@ -26,7 +26,7 @@ function newMessageSend(message) {
   // Create elements
   let send_data_container_background = document.createElement("div");
   send_data_container_background.classList.add(
-    "send-data-container_background"
+    "send-data-container-background"
   );
 
   let send_data_container = document.createElement("div");
@@ -36,16 +36,16 @@ function newMessageSend(message) {
   send_message.classList.add("send-message");
   send_message.textContent = message;
 
-  let timeDiv = document.createElement("div");
-  timeDiv.classList.add("time");
-  timeDiv.textContent = formattedTime;
+  let send_time = document.createElement("div");
+  send_time.classList.add("send-time");
+  send_time.textContent = formattedTime;
 
   // Append elements
 
   send_data_container.appendChild(send_message);
-  send_data_container.appendChild(timeDiv);
 
   send_data_container_background.appendChild(send_data_container);
+  send_data_container_background.appendChild(send_time);
 
   outputContainer.appendChild(send_data_container_background);
 
@@ -80,6 +80,9 @@ function newMessageReceived(name, message) {
   let outputContainer = document.getElementById("output-container");
 
   // Create elements
+  let received_data_container_background = document.createElement("div");
+  received_data_container_background.classList.add("received-data-container-background");
+
   let received_data_container = document.createElement("div");
   received_data_container.classList.add("received-data-container");
 
@@ -101,9 +104,9 @@ function newMessageReceived(name, message) {
   received_message.classList.add("received-message");
   received_message.textContent = message;
 
-  let timeDiv = document.createElement("div");
-  timeDiv.classList.add("time");
-  timeDiv.textContent = formattedTime;
+  let received_time = document.createElement("div");
+  received_time.classList.add("received-time");
+  received_time.textContent = formattedTime;
 
   // Append elements
 
@@ -112,9 +115,11 @@ function newMessageReceived(name, message) {
   received_name_message_container.appendChild(received_message);
 
   received_data_container.appendChild(received_name_message_container);
-  received_data_container.appendChild(timeDiv);
 
-  outputContainer.appendChild(received_data_container);
+  received_data_container_background.appendChild(received_data_container);
+  received_data_container_background.appendChild(received_time);
+
+  outputContainer.appendChild(received_data_container_background);
 
   updateMessageCount();
 
