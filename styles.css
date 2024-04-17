@@ -30,11 +30,12 @@ body {
 
   overflow-y: auto; /* Enable horizontal scrolling */
   overflow-x: hidden; /* Disable vertical scrolling */
-  margin: 30px 0 0 20px;
+  margin: 25px 0 0 20px;
 }
-/* .received-data-container-background{
-
-} */
+.received-data-container-background{
+  display: flex;
+  flex-direction: column;
+}
 .received-data-container {
   display: flex;
   flex-direction: column;
@@ -94,7 +95,7 @@ body {
 }
 .send-message {
   /* padding: 5px; */
-  min-width: 32px;
+  min-width: 36px;
   font-size: 1.1em;
   color: white;
 }
@@ -106,7 +107,7 @@ body {
   padding-top: 0px;
   padding-bottom: 0px;
   margin: 0;
-  margin-right: 2px;
+  margin-right: 4px;
 }
 
 .action-container {
@@ -208,7 +209,7 @@ input:focus {
   /* background-color: #259c65; */
   background-color: rgba(0, 123, 255, 0.508);
 }
-
+/* 
 @media (min-width: 800px) {
   .box {
     display: flex;
@@ -219,7 +220,7 @@ input:focus {
     border-radius: 20px;
     box-shadow: 20px 20px 40px rgba(122, 122, 122, 0.109);
   }
-}
+} */
 
 div::-webkit-scrollbar {
   width: 4px; /* Width of the scrollbar */
