@@ -16,6 +16,7 @@ body {
   color: rgba(255, 255, 255, 0.733);
 }
 .box {
+  max-width: 600px;
   display: flex;
   flex-direction: column;
   width: 90vw;
@@ -26,6 +27,7 @@ body {
 }
 #output-container {
   width: calc(100% - 20px);
+
   overflow-y: auto; /* Enable horizontal scrolling */
   overflow-x: hidden; /* Disable vertical scrolling */
   margin: 30px 0 0 20px;
@@ -43,9 +45,12 @@ body {
   border-radius: 12px;
   margin: 0 20px 0 0;
   padding: 5px 10px;
+  max-width: 80%;
 }
 .received-name-message-container {
   display: flex;
+  min-width: 50px;
+
 }
 .received-name {
   color: #259c65;
@@ -75,6 +80,7 @@ body {
   flex-direction: column;
   background-color: #1e1e1e;
   margin: 0 20px 8px 0;
+  
 }
 .send-data-container {
   display: flex;
@@ -84,9 +90,11 @@ body {
   background-color: rgb(71, 80, 117);
   border-radius: 12px;
   padding: 5px 10px;
+  max-width: 60%;
 }
 .send-message {
   /* padding: 5px; */
+  min-width: 32px;
   font-size: 1.1em;
   color: white;
 }
@@ -98,7 +106,7 @@ body {
   padding-top: 0px;
   padding-bottom: 0px;
   margin: 0;
-  margin-right: 8px;
+  margin-right: 2px;
 }
 
 .action-container {
