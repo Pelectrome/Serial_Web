@@ -3,7 +3,11 @@ body {
   font-family: Roboto, Arial, sans-serif; /* Set the font */
 }
 a{
-  color: rgb(187, 198, 255); /* Default color */
+  color: rgb(152, 212, 246); /* Change color on hover */
+
+}
+a:hover {
+  color: rgb(255, 207, 251); /* Default color */
 }
 
 .container {
