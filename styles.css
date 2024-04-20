@@ -27,17 +27,44 @@ body {
 }
 .box-title {
   margin: 10px 0 0 0;
-  color: rgba(255, 255, 255, 0.733);
   align-self:center;
+  text-align: center;
   color: #43cbbb8e;
   font-weight: bold;
   font-size: 1.1em;
-  background-color: #36383b75;
+  background-color: #36383b6f;
   border-radius: 20px;
   padding: 5px 10px;
-  width: 60%;
-  text-align: center;
+  width: 50%;
+  animation: growWidth 0.5s ease forwards; /* Apply animation */
+ 
 }
+.box-title-text {
+  visibility: hidden;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  white-space: nowrap; /* Prevent text from wrapping */
+  overflow: hidden; /* Ensures the content is not revealed until the animation */
+  animation: 
+  typing 1.5s steps(40, end) forwards;
+  animation-delay: 0.5s; /* Add delay before animation starts */
+
+}
+
+@keyframes growWidth {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 50%;
+  }
+}
+@keyframes typing {
+  from { width: 0;  visibility: visible; }
+  to { width: 100% ; visibility: visible; }
+}
+
 .separator-box-title {
   width: 120px;
   height: 1px;
