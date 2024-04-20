@@ -36,6 +36,15 @@ function newMessageSend(message) {
   send_message.classList.add("send-message");
   send_message.textContent = message;
 
+  var urlRegex = /(https?:\/\/[^\s]+)/g;
+  // Replace URLs with anchor tags
+  send_message.innerHTML = send_message.innerHTML.replace(
+    urlRegex,
+    function (url) {
+      return '<a href="' + url + '" target="_blank">' + url + "</a>";
+    }
+  );
+
   let send_time = document.createElement("div");
   send_time.classList.add("send-time");
   send_time.textContent = formattedTime;
@@ -81,7 +90,9 @@ function newMessageReceived(name, message) {
 
   // Create elements
   let received_data_container_background = document.createElement("div");
-  received_data_container_background.classList.add("received-data-container-background");
+  received_data_container_background.classList.add(
+    "received-data-container-background"
+  );
 
   let received_data_container = document.createElement("div");
   received_data_container.classList.add("received-data-container");
@@ -103,6 +114,15 @@ function newMessageReceived(name, message) {
   let received_message = document.createElement("div");
   received_message.classList.add("received-message");
   received_message.textContent = message;
+
+  var urlRegex = /(https?:\/\/[^\s]+)/g;
+  // Replace URLs with anchor tags
+  received_message.innerHTML = received_message.innerHTML.replace(
+    urlRegex,
+    function (url) {
+      return '<a href="' + url + '" target="_blank">' + url + "</a>";
+    }
+  );
 
   let received_time = document.createElement("div");
   received_time.classList.add("received-time");

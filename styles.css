@@ -2,6 +2,9 @@ body {
   margin: 0;
   font-family: Roboto, Arial, sans-serif; /* Set the font */
 }
+a{
+  color: rgb(187, 198, 255); /* Default color */
+}
 
 .container {
   display: flex;
