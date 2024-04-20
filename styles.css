@@ -3,8 +3,10 @@ body {
   font-family: Roboto, Arial, sans-serif; /* Set the font */
 }
 a{
-  color: rgb(0, 162, 255); /* Change color on hover */
+  color: rgb(152, 212, 246); /* Change color on hover */
+
 }
+
 
 .container {
   display: flex;
