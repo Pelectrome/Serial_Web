@@ -156,4 +156,12 @@ function updateMessageCount() {
   let messageCount = outputContainer.children.length; // Get the number of child elements
   let messageCountDiv = document.getElementById("message-count-number");
   messageCountDiv.textContent = messageCount;
+
+  if (messageCount === 0) {
+    let empty_svg = document.getElementById("empty-svg");
+    empty_svg.style.display = "block";
+  } else {
+    let empty_svg = document.getElementById("empty-svg");
+    empty_svg.style.display = "none";
+  }
 }

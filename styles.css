@@ -72,6 +72,11 @@ body {
   margin-top: 8px;
   align-self: center;
 }
+#empty-svg {
+  display: none;
+  width: 350px;
+  margin: auto;
+}
 #output-container {
   width: calc(100% - 20px);
 
