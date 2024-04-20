@@ -25,14 +25,34 @@ body {
   border-radius: 20px;
   box-shadow: 20px 20px 40px rgba(122, 122, 122, 0.109);
 }
+.box-title {
+  margin: 10px 0 0 0;
+  color: rgba(255, 255, 255, 0.733);
+  align-self:center;
+  color: #43cbbb8e;
+  font-weight: bold;
+  font-size: 1.1em;
+  background-color: #36383b75;
+  border-radius: 20px;
+  padding: 5px 10px;
+  width: 60%;
+  text-align: center;
+}
+.separator-box-title {
+  width: 120px;
+  height: 1px;
+  background-color: #ffffff4c;
+  margin-top: 8px;
+  align-self: center;
+}
 #output-container {
   width: calc(100% - 20px);
 
   overflow-y: auto; /* Enable horizontal scrolling */
   overflow-x: hidden; /* Disable vertical scrolling */
-  margin: 25px 0 0 20px;
+  margin: 4px 0 0 20px;
 }
-.received-data-container-background{
+.received-data-container-background {
   display: flex;
   flex-direction: column;
 }
@@ -51,7 +71,6 @@ body {
 .received-name-message-container {
   display: flex;
   min-width: 50px;
-
 }
 .received-name {
   color: #259c65;
@@ -62,6 +81,7 @@ body {
   color: white;
   font-size: 1.1em;
   font-weight: bold;
+  margin-left: 2px;
 }
 .received-message {
   display: inline-block;
@@ -81,7 +101,6 @@ body {
   flex-direction: column;
   background-color: #1e1e1e;
   margin: 0 20px 8px 0;
-  
 }
 .send-data-container {
   display: flex;
