@@ -186,14 +186,14 @@ function updateMessageCount() {
   }
 }
 
-function closeWindow() {
+function close_Window() {
   let windowContainer = document.querySelector(".window-container");
   let blurBackground = document.querySelector(".blur-background");
 
   windowContainer.classList.remove("show-window-container");
   blurBackground.classList.remove("show-blur-background");
 }
-function openWindow() {
+function open_Window() {
   let windowContainer = document.querySelector(".window-container");
   let blurBackground = document.querySelector(".blur-background");  
   windowContainer.classList.add("show-window-container");
