@@ -2,10 +2,10 @@ body {
   margin: 0;
   font-family: Roboto, Arial, sans-serif; /* Set the font */
 }
-a{
+a {
   color: rgb(152, 212, 246); /* Change color on hover */
-
 }
+
 
 
 .container {
@@ -43,7 +43,27 @@ a{
   width: 60%;
   animation: growWidth 0.5s ease forwards; /* Apply animation */
 }
-
+.box-title-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.setting-button {
+  position: absolute;
+  background-color: #6a6a6a00;
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  margin-top: 12px;
+  margin-right: 14px;
+  border-radius: 20px;
+  padding: 5px;
+  align-self: flex-end;
+}
+#setting-button {
+  text-align: center;
+}
 .box-title-text {
   visibility: hidden;
   width: fit-content;

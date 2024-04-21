@@ -185,3 +185,17 @@ function updateMessageCount() {
     empty_svg.style.display = "none";
   }
 }
+
+function closeWindow() {
+  let windowContainer = document.querySelector(".window-container");
+  let blurBackground = document.querySelector(".blur-background");
+
+  windowContainer.classList.remove("show-window-container");
+  blurBackground.classList.remove("show-blur-background");
+}
+function openWindow() {
+  let windowContainer = document.querySelector(".window-container");
+  let blurBackground = document.querySelector(".blur-background");  
+  windowContainer.classList.add("show-window-container");
+  blurBackground.classList.add("show-blur-background");
+}
