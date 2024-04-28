@@ -34,7 +34,7 @@ const messagesRef = ref(database, "messages");
 let firstPageLoaded = false;
 
 //localStorage.clear();
-var userID = localStorage.getItem("user");
+var userID = localStorage.getItem("userID");
 if (userID === null) {
   function generateUniqueID() {
     // Generate a timestamp (in milliseconds since Jan 1, 1970 midnight UTC)
@@ -45,17 +45,31 @@ if (userID === null) {
 
     return uniqueID;
   }
-  localStorage.setItem("user", generateUniqueID());
-  userID = localStorage.getItem("user");
+
+  localStorage.setItem("userID", generateUniqueID());
+  userID = localStorage.getItem("userID");
   console.log("No data"); // Output: 'value'
 } else {
   console.log(userID); // Output: 'value'
 }
+var userName = localStorage.getItem("userName");
+if (userName === null || userName === "null" || userName === "") {
+  do {
+    userName = prompt("Please enter your name:");
+  } while (userName === null || userName.trim() === "");
+  localStorage.setItem("userName", userName);
+  userName = localStorage.getItem("userName");
+  console.log("No data"); // Output: 'value'
+} else {
+  console.log(userName); // Output: 'value'
+}
+
 function handleNewData(snapshot) {
   if (snapshot.exists()) {
     var dataArray = Object.values(snapshot.val());
     if (firstPageLoaded == false) {
       firstPageLoaded = true;
+
       dataArray.forEach((element, index, dataArray) => {
         if (userID === element.id) {
           newMessageSend(element.message);
@@ -83,7 +97,7 @@ export function sendMessage(user, messageText) {
   });
   // Push the new message to the database
   push(messagesRef, {
-    user: user,
+    user: userName,
     id: userID,
     message: messageText,
     timestamp: formattedTime, // Example timestamp
