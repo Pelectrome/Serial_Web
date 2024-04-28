@@ -46,6 +46,7 @@ if (userID === null) {
     return uniqueID;
   }
   localStorage.setItem("user", generateUniqueID());
+  userID = localStorage.getItem("user");
   console.log("No data"); // Output: 'value'
 } else {
   console.log(userID); // Output: 'value'
