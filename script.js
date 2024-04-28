@@ -1,5 +1,14 @@
 import { sendMessage } from './firebase.js';
 
+var setting_button = document.querySelector('.setting-button');
+setting_button.addEventListener('click', open_Window);
+
+var close_button_container = document.getElementById('close-button');
+close_button_container.addEventListener('click', close_Window);
+
+var delete_messages = document.querySelector('.delete-messages');
+delete_messages.addEventListener('click', deleteMessages);
+
 updateMessageCount();
 
 document.getElementById("input").addEventListener("keyup", function (event) {
