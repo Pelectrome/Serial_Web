@@ -1,3 +1,5 @@
+import { sendMessage } from './firebase.js';
+
 updateMessageCount();
 
 document.getElementById("input").addEventListener("keyup", function (event) {
@@ -5,14 +7,18 @@ document.getElementById("input").addEventListener("keyup", function (event) {
     send();
   }
 });
-function send() {
-  message = document.getElementById("input").value;
+window.send = function() {
+  let message = document.getElementById("input").value;
+  if(message === "") {
+    return;
+  }
   // Clear input
   document.getElementById("input").value = "";
   newMessageSend(message);
-  newMessageReceived("Sohaib", message);
+  //newMessageReceived("Sohaib", message);
+  sendMessage("Sohaib", message);
 }
-function newMessageSend(message) {
+export function newMessageSend(message) {
   if (message === "") {
     return;
   }
@@ -77,7 +83,7 @@ function newMessageSend(message) {
 
 let autoScroll = true;
 const enableScrollConst = 100;
-function newMessageReceived(name, message) {
+export function newMessageReceived(name, message) {
   if (message === "") {
     return;
   }
@@ -195,7 +201,7 @@ function close_Window() {
 }
 function open_Window() {
   let windowContainer = document.querySelector(".window-container");
-  let blurBackground = document.querySelector(".blur-background");  
+  let blurBackground = document.querySelector(".blur-background");
   windowContainer.classList.add("show-window-container");
   blurBackground.classList.add("show-blur-background");
 }
