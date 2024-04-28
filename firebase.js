@@ -55,6 +55,7 @@ function handleNewData(snapshot) {
   if (snapshot.exists()) {
     var dataArray = Object.values(snapshot.val());
     if (firstPageLoaded == false) {
+      firstPageLoaded = true;
       dataArray.forEach((element, index, dataArray) => {
         if (userID === element.id) {
           newMessageSend(element.message);
@@ -63,7 +64,6 @@ function handleNewData(snapshot) {
             newMessageReceived(element.user, element.message);
         }
       });
-      firstPageLoaded = true;
     }
     let lastMessage = dataArray[dataArray.length - 1];
     if (userID != lastMessage.id) {
