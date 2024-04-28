@@ -1,5 +1,7 @@
 import { sendMessage } from './firebase.js';
 
+var notificationSound = document.getElementById('notificationSound');
+
 var setting_button = document.querySelector('.setting-button');
 setting_button.addEventListener('click', open_Window);
 
@@ -96,6 +98,7 @@ export function newMessageReceived(name, message) {
   if (message === "") {
     return;
   }
+  notificationSound.play();
   let currentTime = new Date();
   let formattedTime = currentTime.toLocaleTimeString("en-US", {
     hour12: false,
