@@ -66,7 +66,6 @@ if (userName === null || userName === "null" || userName === "") {
 
 function handleNewData(snapshot) {
   if (snapshot.exists()) {
-    firstPageLoaded = true;
     var dataArray = Object.values(snapshot.val());
     if (firstPageLoaded == false) {
       dataArray.forEach((element, index, dataArray) => {
@@ -78,6 +77,7 @@ function handleNewData(snapshot) {
         }
       });
     }
+    firstPageLoaded = true;
     let lastMessage = dataArray[dataArray.length - 1];
     if (userID !== lastMessage.id) {
       newMessageReceived(lastMessage.user, lastMessage.message);
