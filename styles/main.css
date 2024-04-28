@@ -60,6 +60,7 @@ a {
   border-radius: 20px;
   padding: 5px;
   align-self: flex-end;
+  -webkit-tap-highlight-color: transparent; /* this to delete the back ground effect on click */
 }
 #setting-button {
   text-align: center;
