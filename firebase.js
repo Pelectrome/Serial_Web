@@ -64,19 +64,23 @@ if (userName === null || userName === "null" || userName === "") {
   console.log(userName); // Output: 'value'
 }
 
+let messagesBufferCount = 100;
 function handleNewData(snapshot) {
   if (snapshot.exists()) {
     var dataArray = Object.values(snapshot.val());
     if (firstPageLoaded == false) {
-      dataArray.forEach((element, index, dataArray) => {
-        if (userID === element.id) {
-          newMessageSend(element.message);
+      for (let i = dataArray.length - messagesBufferCount; i < dataArray.length; i++) {
+        let messageData = dataArray[i];
+        console.log(messageData);
+        if (userID === messageData) {
+          newMessageSend(messageData.message);
         } else {
-          if (index != dataArray.length - 1)
-            newMessageReceived(element.user, element.message);
+          if (i != dataArray.length - 1)
+            newMessageReceived(messageData.user, messageData.message);
         }
-      });
+      }
     }
+
     firstPageLoaded = true;
     let lastMessage = dataArray[dataArray.length - 1];
     if (userID !== lastMessage.id) {
