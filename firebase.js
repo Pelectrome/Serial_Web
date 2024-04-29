@@ -69,10 +69,14 @@ function handleNewData(snapshot) {
   if (snapshot.exists()) {
     var dataArray = Object.values(snapshot.val());
     if (firstPageLoaded == false) {
-      for (let i = dataArray.length - messagesBufferCount; i < dataArray.length; i++) {
+      for (
+        let i = dataArray.length - messagesBufferCount;
+        i < dataArray.length;
+        i++
+      ) {
         let messageData = dataArray[i];
         console.log(messageData);
-        if (userID === messageData) {
+        if (userID === messageData.id) {
           newMessageSend(messageData.message);
         } else {
           if (i != dataArray.length - 1)
