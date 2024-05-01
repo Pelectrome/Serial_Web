@@ -97,7 +97,7 @@ function handleNewData(snapshot) {
 }
 onValue(messagesRef, handleNewData);
 
-export function sendMessage(user, messageText) {
+export function sendMessage(messageText) {
   let currentTime = new Date();
   let formattedTime = currentTime.toLocaleTimeString("en-US", {
     hour12: false,

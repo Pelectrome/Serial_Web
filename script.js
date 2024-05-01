@@ -26,8 +26,7 @@ window.send = function() {
   // Clear input
   document.getElementById("input").value = "";
   newMessageSend(message);
-  //newMessageReceived("Sohaib", message);
-  sendMessage("Sohaib", message);
+  sendMessage(message);
 }
 export function newMessageSend(message) {
   if (message === "") {
