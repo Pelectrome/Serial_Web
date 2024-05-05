@@ -39,7 +39,7 @@ export function MessageBox(messageTile, message) {
 
   requestAnimationFrame(() => {
     messageBox.style.visibility = "visible";
-    messageBox.style.height = "150px";
+    messageBox.style.height = messageBox.scrollHeight+"px"; 
   });
 
   closeButton.addEventListener("click", () => {
