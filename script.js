@@ -1,9 +1,11 @@
 import { sendMessage } from './firebase.js';
+import { MessageBox } from './MessageBox.js';
+
 
 var notificationSound = document.getElementById('notificationSound');
 
 var setting_button = document.querySelector('.setting-button');
-setting_button.addEventListener('click', open_Window);
+setting_button.addEventListener('click', MessageBox);
 
 var close_button_container = document.getElementById('close-button');
 close_button_container.addEventListener('click', close_Window);
