@@ -6,7 +6,7 @@ createMessageBox();
 var notificationSound = document.getElementById('notificationSound');
 
 function createMessageBox() {
-  MessageBox("Information", "👋 | WELCOME to DZ Inventors |👋 Please give us your 📣 feedback about this Website 🌐. ");
+  MessageBox("Information", "👋 | WELCOME to DZ Inventors |👋 \n Please give us your 📣 feedback about this Website 🌐. ");
 }
 var setting_button = document.querySelector('.setting-button');
 setting_button.addEventListener('click', createMessageBox);
