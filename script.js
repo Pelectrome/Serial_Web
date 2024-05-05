@@ -1,14 +1,16 @@
 import { sendMessage } from './firebase.js';
 import { MessageBox } from './MessageBox.js';
 
+createMessageBox();
 
 var notificationSound = document.getElementById('notificationSound');
 
+function createMessageBox() {
+  MessageBox("Information", "👋 | WELCOME to DZ Inventors |👋 Please give us your 📣 feedback about this Website 🌐. ");
+}
 var setting_button = document.querySelector('.setting-button');
-setting_button.addEventListener('click', MessageBox);
+setting_button.addEventListener('click', createMessageBox);
 
-var close_button_container = document.getElementById('close-button');
-close_button_container.addEventListener('click', close_Window);
 
 var delete_messages = document.querySelector('.delete-messages');
 delete_messages.addEventListener('click', deleteMessages);

@@ -1,11 +1,19 @@
-export function MessageBox(message) {
+export function MessageBox(messageTile, message) {
   blurBackground();
 
   const messageBox = document.createElement("div");
   messageBox.id = "messageBox";
 
+  const messageBoxContent = document.createElement("div");
+  messageBoxContent.id = "messageBoxContent";
+  messageBoxContent.textContent = message;
+
   const messageBoxBar = document.createElement("div");
   messageBoxBar.id = "messageBoxBar";
+
+  const messageBoxTitle = document.createElement("div");
+  messageBoxTitle.id = "messageBoxTitle";
+  messageBoxTitle.textContent = messageTile;
 
   const closeButton = document.createElement("div");
   closeButton.id = "closeButton";
@@ -22,14 +30,16 @@ export function MessageBox(message) {
   </svg>
 `;
 
+  messageBoxBar.appendChild(messageBoxTitle);
   messageBoxBar.appendChild(closeButton);
   messageBox.appendChild(messageBoxBar);
+  messageBox.appendChild(messageBoxContent);
 
   document.body.appendChild(messageBox);
 
   requestAnimationFrame(() => {
     messageBox.style.visibility = "visible";
-    messageBox.style.height = "200px";
+    messageBox.style.height = "auto";
   });
 
   closeButton.addEventListener("click", () => {
@@ -37,14 +47,16 @@ export function MessageBox(message) {
     messageBox.style.height = "0";
     unBlurBackground();
   });
-  
+
   messageBox.addEventListener("transitionend", function (event) {
     // Check if the transition property that ended is height
     if (messageBox.clientHeight === 0) {
       // Once the height transition ends, remove the element
       messageBox.remove();
       messageBoxBar.remove();
+      messageBoxContent.remove();
       closeButton.remove();
+      messageBoxTitle.remove();
     }
   });
 }
